@@ -36,7 +36,7 @@ const Navbar = () => {
             <GoArrowDownLeft className="w-6 h-6 text-white" />
           )}
           <span
-            className={`font-bold ${
+            className={`font-bold mix-blend-difference ${
               isOpen ? "text-black" : "text-white"
             } text-xl`}
           >
@@ -62,10 +62,10 @@ const Navbar = () => {
                 <Link
                   key={item.label}
                   to={item.href}
-                  className={`flex items-center ${!isActive ? "navlink-bg" : "" } justify-between text-2xl font-bold transition-opacity px-4 py-3 w-[55%] md:w-[25%] ${
-                    isActive
-                      ? "text-white bg-red-700"
-                      : ""
+                  className={`flex items-center ${
+                    !isActive ? "navlink-bg" : ""
+                  } justify-between text-2xl font-bold transition-opacity px-4 py-3 w-[55%] md:w-[25%] ${
+                    isActive ? "text-white bg-red-700" : ""
                   }`}
                   onClick={toggleMenu}
                 >

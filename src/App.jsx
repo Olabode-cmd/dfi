@@ -28,8 +28,8 @@ function App() {
       <VideoBg />
       <Navbar />
 
-      <section className="bg-white relative py-28 px-32">
-        <h2 className="text-xl md:text-4xl font-semibold mb-4 leading-[50px]">
+      <section className="bg-white relative py-32 px-4 md:px-32" style={{zIndex: '-1'}}>
+        <h2 className="text-3xl md:text-4xl font-semibold mb-4 md:leading-[50px]">
           Empowering you, one
           <br />
           step at a time. Your future <br />
@@ -59,7 +59,7 @@ function App() {
           </Link>
         </div>
       </section>
-      <h1 className="text-red-400">HEYYEY</h1>
+      {/* <h1 className="text-red-400">HEYYEY</h1> */}
     </>
   );
 }
