@@ -36,7 +36,7 @@ const FixedVideoBackground = () => {
         <section className="h-screen flex items-center justify-center text-white relative">
           <div className="absolute left-2 md:left-12 top-2 text-left flex space-x-2 items-center">
             <img src={Logo} alt="Logo" className="w-28" />
-            <div>
+            <div className="hidden md:inline-block">
               <h3 className="font-bold text-sm md:text-lg uppercase">Learn tech.</h3>
               <h3 className="font-bold text-sm md:text-lg uppercase">
                 Explore our courses
