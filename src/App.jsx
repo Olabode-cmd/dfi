@@ -41,7 +41,7 @@ function App() {
             starts right here.
           </span>
         </h2>
-        <p className="text-md md:text-[17px] w-[97%] md:w-[85%] text-gray-700 leading-[34px] my-8">
+        <p className="text-md md:text-[18px] w-[97%] md:w-[85%] text-gray-700 leading-[34px] my-8">
           Success in tech is built one line of code at a time. Our training
           program is designed to take you from where you are now to where you
           want to be, equipping you with in-demand skills and real-world
