@@ -3,6 +3,7 @@ import { GoArrowDownLeft, GoArrowUpRight } from "react-icons/go";
 import { Link } from 'react-router'
 import { useLocation } from "react-router";
 import { FaArrowRight } from 'react-icons/fa'
+import Logo from "../assets/images/dfi-logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,24 +26,28 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar */}
-      <nav className="fixed top-0 right-1 p-4 z-80">
-        <button
-          onClick={toggleMenu}
-          className="flex items-center gap-1 hover:opacity-70 transition-opacity"
-        >
-          {isOpen ? (
-            <GoArrowUpRight className="w-6 h-6 text-black" />
-          ) : (
-            <GoArrowDownLeft className="w-6 h-6 text-white" />
-          )}
-          <span
-            className={`font-bold mix-blend-difference ${
-              isOpen ? "text-black" : "text-white"
-            } text-xl`}
+      <nav className="fixed top-0 left-1 right-1 p-4 z-80">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center gap-4">
+            <img src={Logo} alt="Logo" className="h-10" />
+          </div>
+
+          <button
+            onClick={toggleMenu}
+            className="flex items-center gap-1 hover:opacity-70 transition-opacity"
           >
-            {isOpen ? "CLOSE" : "MENU"}
-          </span>
-        </button>
+            {isOpen ? (
+              <GoArrowUpRight className="w-6 h-6 text-black" />
+            ) : (
+              <GoArrowDownLeft className="w-6 h-6 text-black" />
+            )}
+            <span
+              className={`font-bold mix-blend-difference text-black text-xl`}
+            >
+              {isOpen ? "CLOSE" : "MENU"}
+            </span>
+          </button>
+        </div>
       </nav>
 
       {/* Overlay Menu */}
