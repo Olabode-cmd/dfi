@@ -1,18 +1,25 @@
 import { React } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from 'react-router'
 import './index.css'
 import App from './App.jsx'
 import About from './pages/about.jsx';
 
-
-
 import CustomCursor from './components/custom-cursor.jsx';
 import Preloader from './components/preloader.jsx';
 
 const Root = () => {
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 700,
+      once: true,
+    });
+  }, []);
 
   return (
     <BrowserRouter>

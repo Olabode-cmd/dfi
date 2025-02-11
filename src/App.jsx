@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from "react";
 import Navbar from "./components/homenavbar";
 import { Link } from "react-router";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 
 // import { ReactTyped } from "react-typed";
 
@@ -13,11 +12,20 @@ import { FaBookOpen, FaPhone } from "react-icons/fa";
 import VideoScrollEffect from "./components/gasp-home";
 // import Calendar from './assets/images/calendar.svg'
 
+// Images
 import HeroDFI from './assets/images/hero-dfi.png';
 import Arrow from './assets/images/arrow.png'
 import Student1 from './assets/images/student1.png'
 import Student2 from './assets/images/student2.png'
 import Student3 from './assets/images/student3.png'
+import Heart from './assets/images/valentine.png';
+import ShapePurple from './assets/images/shape-purple.svg'
+import Class1 from './assets/images/class1.jpg'
+import Class2 from './assets/images/class2.jpg'
+import Class3 from './assets/images/class3.jpg'
+
+
+import CourseCard from "./components/course-card";
 
 
 function App() {
@@ -79,16 +87,20 @@ function App() {
       <Navbar />
 
       <div className="relative bg-hero">
-        <section className="relative py-16 md:py-24 px-8 md:px-2 md:max-w-6xl mx-auto">
+        <section className="relative py-16 md:pb-24 md:pt-16 px-8 md:px-2 md:max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-28">
             <div>
-              <div className="mb-6 mt-4">
+              <div data-aos="fade-up" className="mb-6 mt-4">
                 <p className="text-sm uppercase text-red-500 bg-[#fff6f6] rounded-2xl px-2.5 py-1.5 inline">
                   Digital Fortress{" "}
                   <span className="text-blue-500 text-xl">&#x2022; </span> 2025
                 </p>
               </div>
-              <h1 className="text-5xl md:text-[75px] leading-[40px] md:leading-[80px]">
+              <h1
+                data-aos="fade-up"
+                data-aos-delay="300"
+                className="text-5xl md:text-[75px] leading-[40px] md:leading-[80px]"
+              >
                 <span className="">
                   Learn <span className="text-red-500">Tech</span>
                   <span className="text-blue-500">.</span>
@@ -109,20 +121,29 @@ function App() {
                 </span>
               </h1>
 
-              <p className="my-5 text-sm md:text-[17px] text-slate-900">
+              <p
+                data-aos="fade-up"
+                data-aos-delay="400"
+                className="my-5 text-sm md:text-[17px] text-slate-900"
+              >
                 We equip learners with the skills to build real-world software
                 solutions. <br className="hidden md:inline-block" />
                 Our hands-on approach ensures you stay ahead in tech.
               </p>
 
-              <div className="my-8 flex space-x-3 items-center">
+              <div
+                className="my-8 flex space-x-3 items-center"
+                // data-aos="fade-up"
+              >
                 <div className="flex items-center">
-                  <img src={Student1} alt="student 1" className='w-12' />
-                  <img src={Student2} alt="student 2" className='w-12' />
-                  <img src={Student3} alt="student 3" className='w-12' />
+                  <img src={Student1} alt="student 1" className="w-12" />
+                  <img src={Student2} alt="student 2" className="w-12" />
+                  <img src={Student3} alt="student 3" className="w-12" />
                 </div>
 
-                  <h1 className='font-medium text-md'>More than 500 graduates annually.</h1>
+                <h1 className="font-medium text-md">
+                  More than 500 graduates annually.
+                </h1>
               </div>
 
               <div className="relative mt-6">
@@ -132,15 +153,28 @@ function App() {
                 </button>
 
                 <img
+                  // data-aos="fade-right"
                   src={Arrow}
                   alt="arrow"
-                  className="w-[120px] md:w-[180px] scale-x-[-1] absolute left-[45%] top-[-55px]"
+                  className="w-[120px] md:w-[180px] scale-x-[-1] absolute left-[40%] top-[-55px]"
                 />
               </div>
             </div>
 
-            <div className="flex justify-center md:justify-end">
-              <img src={HeroDFI} alt="heroimg" className="w-[80%]" />
+            <div className="flex justify-center md:justify-end relative">
+              <img
+                src={HeroDFI}
+                alt="heroimg"
+                className="w-[80%]"
+                data-aos="fade-up"
+              />
+              <img
+                src={Heart}
+                alt="heart"
+                className="w-[65px] absolute -top-3 left-[15%] float"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              />
             </div>
           </div>
 
@@ -149,6 +183,48 @@ function App() {
               alt="plus icon"
               className="w-[90px] md:w-[200px] absolute left-[8%] top-[24%] -z-1"
             /> */}
+        </section>
+
+        <section className="pt-16 pb-32 bg-slate-900 text-white relative overflow-hidden">
+          <img
+            src={ShapePurple}
+            alt="shape"
+            className="-top-10 w-[180px] -right-10 absolute"
+          />
+          <h1 className="text-lg text-center" data-aos="fade-up">
+            We've helped over 700+ students worldwide build a career in tech.
+          </h1>
+        </section>
+
+        {/* SECTION COURSES */}
+        <section className="max-w-6xl mx-auto px-4 py-16">
+          <div className="text-center">
+            <h1 className="text-4xl font-semibold mb-5">Our Courses</h1>
+            <p className="text-base text-gray-500">
+              Providing aspiring professionals with the tools and materials they
+              need to <br /> explore and develop in their chosen fields.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 grid-cols-1 md:grid-cols-3">
+            <CourseCard
+              title="Product Design"
+              description="lorem ipsmu jschjds fdjd k fdjsf d bfdsfy duscdfhbd hsdhdf djsf"
+              image={Class1}
+            />
+
+            <CourseCard
+              title="Frontend Web Development"
+              description="lorem ipsmu jschjds fdjd k fdjsf d bfdsfy duscdfhbd hsdhdf djsf ipsmu jschjds fdjd k fdjsf d bfdsfy duscdfhbd "
+              image={Class2}
+            />
+
+            <CourseCard
+              title="Python for Beginners"
+              description="lorem ipsmu jschjds fdjd jschjds fdjd k fdjsf d bfdsfy duscdfhbd "
+              image={Class3}
+            />
+          </div>
         </section>
 
         <div className="">
@@ -185,7 +261,7 @@ function App() {
           </section>
         </div>
 
-        <VideoScrollEffect />
+        {/* <VideoScrollEffect /> */}
 
         {/* Who We Serve Section */}
         <section className="py-20 bg-white">

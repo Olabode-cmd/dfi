@@ -80,6 +80,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Flip } from "gsap/Flip";
 
 import Video from "../assets/videos/gsap-bg.mp4";
+import Class from '../assets/images/class3.jpg';
 
 // Register GSAP Plugins
 gsap.registerPlugin(ScrollTrigger, Flip);
@@ -158,27 +159,34 @@ export default function VideoScrollEffect() {
         ref={containerRef}
         className="relative flex justify-center items-center min-h-screen overflow-hidden"
       >
-        <video
+        {/* <video
           ref={videoRef}
           className="absolute w-1/2 h-[50vh] object-cover transition-all"
           src={Video}
           autoPlay
           muted
           loop
+        /> */}
+
+        <img
+          src={Class}
+          ref={videoRef}
+          alt="class image"
+          className="absolute w-1/2 h-[50vh] object-cover transition-all"
         />
       </div>
 
       {/* Centered Text That Flips */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 z-50">
+      {/* <div className="absolute top-1/2 left-1/4 -translate-y-1/2 z-50">
         <h1 ref={textRef} className="text-6xl font-bold text-white">
           Learn Tech
         </h1>
-      </div>
+      </div> */}
 
       {/* Next Section Placeholder */}
-      <div className="h-screen bg-gray-900 flex items-center justify-center text-white text-4xl">
+      {/* <div className="h-screen bg-gray-900 flex items-center justify-center text-white text-4xl">
         Next Section
-      </div>
+      </div> */}
     </div>
   );
 }
