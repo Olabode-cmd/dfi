@@ -6,27 +6,28 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 // import { ReactTyped } from "react-typed";
 
-import Plus from './assets/images/plus-icon.png'
+import Plus from "./assets/images/plus-icon.png";
 import { HiUsers } from "react-icons/hi2";
 import { FaBookOpen, FaPhone } from "react-icons/fa";
 import VideoScrollEffect from "./components/gasp-home";
 // import Calendar from './assets/images/calendar.svg'
 
 // Images
-import HeroDFI from './assets/images/hero-dfi.png';
-import Arrow from './assets/images/arrow.png'
-import Student1 from './assets/images/student1.png'
-import Student2 from './assets/images/student2.png'
-import Student3 from './assets/images/student3.png'
-import Heart from './assets/images/valentine.png';
-import ShapePurple from './assets/images/shape-purple.svg'
-import Class1 from './assets/images/class1.jpg'
-import Class2 from './assets/images/class2.jpg'
-import Class3 from './assets/images/class3.jpg'
-
+import HeroDFI from "./assets/images/hero-dfi.png";
+import Arrow from "./assets/images/arrow.png";
+import Student1 from "./assets/images/student1.png";
+import Student2 from "./assets/images/student2.png";
+import Student3 from "./assets/images/student3.png";
+import Heart from "./assets/images/valentine.png";
+import ShapePurple from "./assets/images/shape-purple.svg";
+import Class1 from "./assets/images/class1.jpg";
+import Class2 from "./assets/images/class2.jpg";
+import Class3 from "./assets/images/class3.jpg";
+import Instructors from "./assets/images/undraw-instructors.svg";
+import Courses from "./assets/images/undraw-courses.svg";
+import Certificate from "./assets/images/undraw-certificates.svg";
 
 import CourseCard from "./components/course-card";
-
 
 function App() {
   const textRef = useRef(null);
@@ -87,8 +88,8 @@ function App() {
       <Navbar />
 
       <div className="relative bg-hero">
-        <section className="relative py-16 md:pb-24 md:pt-16 px-8 md:px-2 md:max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-28">
+        <section className="relative py-16 md:pb-24 md:pt-16 px-8 md:px-0 md:max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 pt-28">
             <div>
               <div data-aos="fade-up" className="mb-6 mt-4">
                 <p className="text-sm uppercase text-red-500 bg-[#fff6f6] rounded-2xl px-2.5 py-1.5 inline">
@@ -161,11 +162,11 @@ function App() {
               </div>
             </div>
 
-            <div className="flex justify-center md:justify-end relative">
+            <div className="md:flex justify-center md:justify-end relative hidden">
               <img
                 src={HeroDFI}
                 alt="heroimg"
-                className="w-[80%]"
+                className="w-[80%] rounded-md shade-img"
                 data-aos="fade-up"
               />
               <img
@@ -185,21 +186,108 @@ function App() {
             /> */}
         </section>
 
-        <section className="pt-16 pb-32 bg-slate-900 text-white relative overflow-hidden">
+        <section className="py-10 bg-slate-900 text-white relative overflow-hidden">
           <img
             src={ShapePurple}
             alt="shape"
             className="-top-10 w-[180px] -right-10 absolute"
           />
-          <h1 className="text-lg text-center" data-aos="fade-up">
+          <h1 className="text-xl text-center" data-aos="fade-up">
             We've helped over 700+ students worldwide build a career in tech.
           </h1>
+        </section>
+
+        {/* WHY DFI */}
+        <section className="px-4 py-24 bg-gray-50">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-left" data-aos="fade-up">
+              <h3 className="text-sm font-medium uppercase text-gray-500">
+                Why Digital Fortress?
+              </h3>
+              <h1 className="text-5xl mt-4 font-semibold leading-[55px]">
+                Things that set us apart
+                <br /> from the others
+              </h1>
+            </div>
+
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div
+                data-aos="fade-up"
+                className="bg-white px-5 py-8 border-2 border-slate-900 flex flex-col space-y-3 rounded-md"
+              >
+                <img
+                  src={Instructors}
+                  alt="instructors"
+                  className="h-[180px]"
+                />
+
+                <div className="content">
+                  <h1 className="text-2xl font-bold my-4">
+                    Expert Instructors
+                  </h1>
+
+                  <p className="text-lg leading-7 text-gray-500">
+                    Learn from industry professionals with years of experience.
+                    Our expert instructors provide valuable insights, practical
+                    strategies, and dedicated support to help you succeed.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                data-aos="fade-up"
+                data-aos-delay="200"
+                className="bg-white px-5 py-8 border-2 border-slate-900 flex flex-col-reverse md:flex-col space-y-3 rounded-md"
+              >
+                <div className="content">
+                  <h1 className="text-2xl font-bold my-4 md:mb-4 md:mt-0">
+                    Great Courses
+                  </h1>
+
+                  <p className="text-lg leading-7 text-gray-500">
+                    Gain practical skills with our expertly designed courses.
+                    Whether you're upskilling or switching careers, our content
+                    is engaging, hands-on, and tailored for real-world
+                    application.
+                  </p>
+                </div>
+
+                <img
+                  src={Courses}
+                  alt="courses"
+                  className="h-[180px] md:mt-4"
+                />
+              </div>
+
+              <div
+                data-aos="fade-up"
+                data-aos-delay="400"
+                className="bg-white px-5 py-8 border-2 border-slate-900 flex flex-col space-y-3 rounded-md"
+              >
+                <img src={Certificate} alt="courses" className="h-[180px]" />
+
+                <div className="content">
+                  <h1 className="text-2xl font-bold my-4">
+                    Trusted Cetificates
+                  </h1>
+
+                  <p className="text-lg leading-7 text-gray-500">
+                    Boost your career with recognized certifications. Our
+                    certificates showcase your expertise and are trusted by
+                    employers, giving you a competitive edge in the job market.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* SECTION COURSES */}
         <section className="max-w-6xl mx-auto px-4 py-16">
           <div className="text-center">
-            <h1 className="text-4xl font-semibold mb-5">Our Courses</h1>
+            <h1 className="text-4xl font-semibold mb-5">
+              Our Most Popular Courses
+            </h1>
             <p className="text-base text-gray-500">
               Providing aspiring professionals with the tools and materials they
               need to <br /> explore and develop in their chosen fields.
@@ -225,6 +313,23 @@ function App() {
               image={Class3}
             />
           </div>
+
+          <div className="flex items-center justify-center mt-10">
+            <button className="flex items-center text-sm text-white px-3 py-2.5 rounded-md space-x-2 bg-red-500 hover:bg-red-600 duration-200">
+              <span>View all courses</span>
+              <FaArrowRightLong className="w-8" />
+            </button>
+          </div>
+        </section>
+
+        {/* STATISTICS */}
+        <section className='bg-slate-900 py-24 px-4'>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
+
+            </div>
+            <h1>hey</h1>
+          </div>
         </section>
 
         <div className="">
@@ -249,7 +354,7 @@ function App() {
               help you turn knowledge into action and action into career growth.
             </p>
 
-            <div className="w-auto inline-block">
+            {/* <div className="w-auto inline-block">
               <Link
                 to="/about"
                 className="pr-3 pb-1.5 text-base flex items-center space-x-3 text-red-500 border-b border-red-500 cursor-pointer"
@@ -257,7 +362,7 @@ function App() {
                 <span>About us</span>
                 <FaArrowRightLong />
               </Link>
-            </div>
+            </div> */}
           </section>
         </div>
 

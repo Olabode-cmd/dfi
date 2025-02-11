@@ -3,7 +3,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 const CourseCard = ({ image, title, description }) => {
   return (
-    <div className="bg-white rounded-md border border-gray-200 overflow-hidden w-full max-w-sm h-full flex flex-col transform transition-transform duration-300 hover:-translate-y-1">
+    <div className="bg-white rounded-md border border-gray-200 overflow-hidden w-full max-w-sm h-full flex flex-col transform transition-transform duration-300">
       <div className="relative w-full pt-[56.25%] bg-gray-100">
         <img
           src={image || "/api/placeholder/400/225"}
@@ -42,9 +42,11 @@ const CourseCard = ({ image, title, description }) => {
 
           {/* Action Buttons */}
           <div className="flex gap-3">
-            <button className="flex items-center text-sm text-white px-3 py-2.5 rounded-md space-x-3 bg-red-500 hover:bg-blue-600 duration-200">
+            <button className="group flex items-center space-x-2 text-sm font-medium text-gray-600 hover:text-red-600 transition-colors duration-300">
               <span>Learn more</span>
-              <FaArrowRightLong className="w-8" />
+              <span className="transform transition-transform duration-300 group-hover:translate-x-2">
+                <FaArrowRightLong className="w-4 h-4" />
+              </span>
             </button>
             {/* <button className="px-4 py-3 border border-gray-200 rounded-lg text-gray-600 transition-colors duration-300 hover:bg-gray-50">
               <svg
