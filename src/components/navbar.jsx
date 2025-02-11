@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar */}
-      <nav className="fixed top-0 left-1 right-1 p-4 z-80">
+      <nav className="fixed top-0 left-1 right-1 py-4 px-6 md:px-10 z-80">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4">
             <img src={Logo} alt="Logo" className="h-10" />
