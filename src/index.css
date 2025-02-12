@@ -39,13 +39,14 @@
 }
 
 .slide-text {
-  background-image: linear-gradient(to right, #FB2C36 50%, transparent 50%);
+  background-image: linear-gradient(to right, #db111b 50%, transparent 50%);
   background-size: 200%;
   background-position: right;
   padding: 2px 5px;
   padding-right: 10px;
   display: inline-block;
   transition: 1s;
+  color: #fff;
 }
 .slide-in {
   background-position: left;
@@ -102,4 +103,8 @@
   border-radius: 5px;
   background: red;
   z-index: -1;
+}
+
+.transform-img {
+  transform: translateY(-130px) rotateY(-25deg);
 }

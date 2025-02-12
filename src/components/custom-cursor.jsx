@@ -21,7 +21,7 @@ const CustomCursor = () => {
   return (
     <>
       {/* Hide the default cursor */}
-      <style>{`body { cursor: none; }`}</style>
+      {/* <style>{`body { cursor: none; }`}</style> */}
 
       {/* Fast-moving cursor dot */}
       <motion.div

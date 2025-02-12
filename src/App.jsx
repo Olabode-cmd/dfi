@@ -1,15 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 // import VideoBg from "./components/home/videobg";
 import Navbar from "./components/homenavbar";
+import MarqueeSection from "./components/home/marqueelearn";
+import CountUp from 'react-countup';
 import { Link } from "react-router";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 // import { ReactTyped } from "react-typed";
 
-import Plus from "./assets/images/plus-icon.png";
 import { HiUsers } from "react-icons/hi2";
 import { FaBookOpen, FaPhone } from "react-icons/fa";
-import VideoScrollEffect from "./components/gasp-home";
 // import Calendar from './assets/images/calendar.svg'
 
 // Images
@@ -26,6 +26,7 @@ import Class3 from "./assets/images/class3.jpg";
 import Instructors from "./assets/images/undraw-instructors.svg";
 import Courses from "./assets/images/undraw-courses.svg";
 import Certificate from "./assets/images/undraw-certificates.svg";
+import Counsellor from './assets/images/dfi-counsellor.png'
 
 import CourseCard from "./components/course-card";
 
@@ -33,22 +34,46 @@ function App() {
   const textRef = useRef(null);
   const [inView, setInView] = useState(false);
 
+  const [key, setKey] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setKey((prev) => prev + 1);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const courses = [
     {
       title: "Digital Marketing",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      description:
+        "In this course, you'll learn how to create effective online marketing strategies, optimize social media campaigns, and analyze digital marketing metrics to grow any business.",
+      image: Class1,
+      id: 1,
+      duration: "12 weeks",
+      beginnerFriendly: true,
     },
     {
       title: "Web Development",
       description:
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "This course is all about building responsive websites and dynamic web applications using HTML, CSS, JavaScript, and modern frameworks. You'll also learn best practices for front-end and back-end development.",
+      image: Class2,
+      id: 2,
+      duration: "16 weeks",
+      beginnerFriendly: false,
     },
     {
       title: "Data Analytics",
       description:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+        "In this course, you'll master data analysis techniques, learn to visualize insights using popular tools, and make data-driven decisions to solve real-world problems.",
+      image: Class3,
+      id: 3,
+      duration: "10 weeks",
+      beginnerFriendly: true,
     },
   ];
+
 
   const audiences = [
     {
@@ -186,13 +211,17 @@ function App() {
             /> */}
         </section>
 
-        <section className="py-10 bg-slate-900 text-white relative overflow-hidden">
+        <section
+          className="py-10 bg-slate-900 text-white relative overflow-hidden"
+          data-aos="fade-up"
+          data-aos-duration="400"
+        >
           <img
             src={ShapePurple}
             alt="shape"
             className="-top-10 w-[180px] -right-10 absolute"
           />
-          <h1 className="text-xl text-center" data-aos="fade-up">
+          <h1 className="text-xl text-center">
             We've helped over 700+ students worldwide build a career in tech.
           </h1>
         </section>
@@ -283,7 +312,7 @@ function App() {
         </section>
 
         {/* SECTION COURSES */}
-        <section className="max-w-6xl mx-auto px-4 py-16">
+        <section className="max-w-6xl mx-auto px-4 pt-16 pb-32">
           <div className="text-center">
             <h1 className="text-4xl font-semibold mb-5">
               Our Most Popular Courses
@@ -295,23 +324,18 @@ function App() {
           </div>
 
           <div className="mt-12 grid gap-5 grid-cols-1 md:grid-cols-3">
-            <CourseCard
-              title="Product Design"
-              description="lorem ipsmu jschjds fdjd k fdjsf d bfdsfy duscdfhbd hsdhdf djsf"
-              image={Class1}
-            />
-
-            <CourseCard
-              title="Frontend Web Development"
-              description="lorem ipsmu jschjds fdjd k fdjsf d bfdsfy duscdfhbd hsdhdf djsf ipsmu jschjds fdjd k fdjsf d bfdsfy duscdfhbd "
-              image={Class2}
-            />
-
-            <CourseCard
-              title="Python for Beginners"
-              description="lorem ipsmu jschjds fdjd jschjds fdjd k fdjsf d bfdsfy duscdfhbd "
-              image={Class3}
-            />
+            {courses.map((course, index) => (
+              <CourseCard
+                key={course.id}
+                id={course.id}
+                image={course.image}
+                title={course.title}
+                description={course.description}
+                duration={course.duration}
+                beginnerFriendly={course.beginnerFriendly}
+                // aosDelay={index * 200}
+              />
+            ))}
           </div>
 
           <div className="flex items-center justify-center mt-10">
@@ -323,14 +347,60 @@ function App() {
         </section>
 
         {/* STATISTICS */}
-        <section className='bg-slate-900 py-24 px-4'>
+        <section className="bg-slate-900 pt-24 pb-10 px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
+              <div data-aos="fade-up" className="relative">
+                <div className="w-[65%] rounded-lg bg-red-500 border-[10px] border-red-500 -translate-y-40 -rotate-[6deg]">
+                  <img
+                    src={Counsellor}
+                    alt="dfi counsellor"
+                    className="w-full !rounded-lg -rotate-[1deg]"
+                  />
+                </div>
+              </div>
+              <div data-aos="fade-right">
+                <h1 className="text-[44px] text-white font-semibold mb-4">
+                  We help our students <br /> learn, grow and succeed.
+                </h1>
+                <p className="text-md text-slate-300">
+                  Digital Fortress provides comprehensive education and support
+                  to help you reach your full potential. Our mission is to
+                  transform your passion for learning into valuable skills and
+                  successful careers with high-quality courses and expert
+                  guidance.
+                </p>
 
+                <div className="grid grid-cols-3 text-center py-16">
+                  <div>
+                    <h1 className="text-5xl text-white mb-2 font-bold">
+                      <CountUp key={key} start={0} end={15} duration={4} />+
+                    </h1>
+                    <p className="text-slate-500 text-sm">
+                      Years of experience
+                    </p>
+                  </div>
+                  <div>
+                    <h1 className="text-5xl text-white mb-2 font-bold">
+                      <CountUp key={key + 1} start={0} end={521} duration={4} />
+                    </h1>
+                    <p className="text-slate-500 text-sm">Graduates annually</p>
+                  </div>
+                  <div>
+                    <h1 className="text-5xl text-white mb-2 font-bold">
+                      <CountUp key={key + 2} start={0} end={6} duration={4} />
+                    </h1>
+                    <p className="text-slate-500 text-sm">
+                      Operational centers
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h1>hey</h1>
           </div>
         </section>
+
+        <MarqueeSection />
 
         <div className="">
           <section className="bg-white/85 relative py-24 px-4 md:px-32">
@@ -353,23 +423,13 @@ function App() {
               experience. With expert-led courses and a supportive community, we
               help you turn knowledge into action and action into career growth.
             </p>
-
-            {/* <div className="w-auto inline-block">
-              <Link
-                to="/about"
-                className="pr-3 pb-1.5 text-base flex items-center space-x-3 text-red-500 border-b border-red-500 cursor-pointer"
-              >
-                <span>About us</span>
-                <FaArrowRightLong />
-              </Link>
-            </div> */}
           </section>
         </div>
 
         {/* <VideoScrollEffect /> */}
 
         {/* Who We Serve Section */}
-        <section className="py-20 bg-white">
+        {/* <section className="py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <div className="flex items-center space-x-2 mb-2">
               <HiUsers className="w-5 h-5 text-red-500" />
@@ -397,88 +457,7 @@ function App() {
               ))}
             </div>
           </div>
-        </section>
-
-        <section className="relative py-28 px-4 md:px-32">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-blue-100 rounded-lg">
-              <h1 className="text-red-500">Welcome to DFI</h1>
-            </div>
-
-            <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
-              <div className="border-2 border-gray-700 bg-white rounded-lg flex flex-col justify-between">
-                <div className="pt-4 px-3 mb-6">
-                  <h1 className="text-3xl md:text-5xl font-semibold">15</h1>
-                  <p className="text-gray-500 text-base mt-2">
-                    Years of experience
-                  </p>
-                </div>
-                {/* <img src={Calendar} alt="calendar svg" /> */}
-              </div>
-
-              <div className="border-2 border-gray-700 bg-white rounded-lg flex flex-col justify-between">
-                <div className="pt-4 px-3 mb-6">
-                  <h1 className="text-3xl md:text-5xl font-semibold">521</h1>
-                  <p className="text-gray-500 text-base mt-2">
-                    Graduates annually
-                  </p>
-                </div>
-                {/* <img src={Calendar} alt="calendar svg" /> */}
-              </div>
-
-              <div className="border-2 border-gray-700 bg-white rounded-lg flex flex-col justify-between">
-                <div className="pt-4 px-3 mb-6">
-                  <h1 className="text-3xl md:text-5xl font-semibold">6</h1>
-                  <p className="text-gray-500 text-base mt-2">
-                    Operational centers
-                  </p>
-                </div>
-                {/* <img src={Calendar} alt="calendar svg" /> */}
-              </div>
-
-              <div className="border-2 border-gray-700 bg-white rounded-lg flex flex-col justify-between">
-                <div className="pt-4 px-3 mb-6">
-                  <h1 className="text-3xl md:text-5xl font-semibold">60</h1>
-                  <p className="text-gray-500 text-base mt-2">
-                    Placement partners
-                  </p>
-                </div>
-                {/* <img src={Calendar} alt="calendar svg" /> */}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Courses Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="flex items-center space-x-2 mb-2">
-              <FaBookOpen className="w-5 h-5 text-red-500" />
-              <p className="text-red-500 font-medium">Education</p>
-            </div>
-            <h2 className="text-4xl font-bold mb-12">Courses We Offer</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {courses.map((course, index) => (
-                <div key={index} className="group cursor-pointer">
-                  <div className="aspect-video bg-gray-100 rounded-lg mb-6 overflow-hidden">
-                    <div className="w-full h-full bg-gray-200 group-hover:scale-105 transition-transform duration-300" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{course.title}</h3>
-                  <p className="text-gray-600 mb-4">{course.description}</p>
-                  <Link
-                    to={`/courses/${course.title
-                      .toLowerCase()
-                      .replace(" ", "-")}`}
-                    className="inline-flex items-center space-x-2 text-red-500 border-b border-red-500"
-                  >
-                    <span>View course</span>
-                    <FaArrowRightLong className="w-4 h-4" />
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        </section> */}
 
         {/* Contact Section */}
         <section className="py-20 bg-gray-900 text-white">

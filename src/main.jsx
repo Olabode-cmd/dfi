@@ -16,8 +16,9 @@ const Root = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 700,
+      duration: 600,
       once: true,
+      once: false,
     });
   }, []);
 
