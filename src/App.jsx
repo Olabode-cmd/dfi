@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 // import VideoBg from "./components/home/videobg";
 import Navbar from "./components/homenavbar";
 import MarqueeSection from "./components/home/marqueelearn";
+import TestimonialsSection from "./components/home/testimonials";
+import Clients from "./components/home/clients";
 import CountUp from 'react-countup';
 import { Link } from "react-router";
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -18,7 +20,7 @@ import Arrow from "./assets/images/arrow.png";
 import Student1 from "./assets/images/student1.png";
 import Student2 from "./assets/images/student2.png";
 import Student3 from "./assets/images/student3.png";
-import Heart from "./assets/images/valentine.png";
+import Heart from "./assets/images/laptop.png";
 import ShapePurple from "./assets/images/shape-purple.svg";
 import Class1 from "./assets/images/class1.jpg";
 import Class2 from "./assets/images/class2.jpg";
@@ -426,6 +428,13 @@ function App() {
           </section>
         </div>
 
+        <div className="max-w-6xl mx-auto px-5 pb-1">
+          <h1 className="text-2xl font-semibold">Trusted Partners</h1>
+        </div>
+        <Clients />
+
+        <TestimonialsSection />
+
         {/* <VideoScrollEffect /> */}
 
         {/* Who We Serve Section */}
@@ -460,7 +469,7 @@ function App() {
         </section> */}
 
         {/* Contact Section */}
-        <section className="py-20 bg-gray-900 text-white">
+        {/* <section className="py-20 bg-gray-900 text-white">
           <div className="max-w-6xl mx-auto px-4">
             <div className="flex items-center space-x-2 mb-2">
               <FaPhone className="w-5 h-5 text-red-500" />
@@ -514,7 +523,7 @@ function App() {
               </form>
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
 
       {/* <h1 className="text-red-400">HEYYEY</h1> */}
