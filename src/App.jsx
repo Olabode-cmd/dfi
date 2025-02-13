@@ -113,7 +113,7 @@ function App() {
   return (
     <>
       {/* <VideoBg /> */}
-      <Navbar />
+      {/* <Navbar /> */}
 
       <div className="relative bg-hero">
         <section className="relative py-16 md:pb-24 md:pt-16 px-8 md:px-0 md:max-w-6xl mx-auto">
@@ -437,7 +437,7 @@ function App() {
         <Clients />
 
         <TestimonialsSection />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   );
