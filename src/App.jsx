@@ -9,12 +9,6 @@ import CountUp from 'react-countup';
 import { Link } from "react-router";
 import { FaArrowRightLong } from "react-icons/fa6";
 
-// import { ReactTyped } from "react-typed";
-
-import { HiUsers } from "react-icons/hi2";
-import { FaBookOpen, FaPhone } from "react-icons/fa";
-// import Calendar from './assets/images/calendar.svg'
-
 // Images
 import HeroDFI from "./assets/images/hero-dfi.png";
 import Arrow from "./assets/images/arrow.png";
@@ -206,12 +200,6 @@ function App() {
               />
             </div>
           </div>
-
-          {/* <img
-              src={Plus}
-              alt="plus icon"
-              className="w-[90px] md:w-[200px] absolute left-[8%] top-[24%] -z-1"
-            /> */}
         </section>
 
         <section

@@ -89,6 +89,22 @@
   animation: float 3s ease-in-out infinite;
 }
 
+@keyframes moveRightAndBack {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(40px);
+  }
+}
+
+.animated-heart {
+  animation: moveRightAndBack 2.5s infinite;
+}
+
 .shade-img {
   position: relative;
 }
