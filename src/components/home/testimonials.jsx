@@ -44,7 +44,7 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <div className="bg-slate-900 py-16 mt-2">
+    <div className="bg-slate-900 pt-16 pb-24 mt-2">
         <div className="text-center mb-8">
             <h1 className="text-4xl mb-3 text-white font-semibold">Testimonials</h1>
             <p className="text-gray-500 text-sm">What our students say about us</p>
@@ -52,7 +52,7 @@ const TestimonialsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left Column - Image Carousel */}
-          <div className="relative hidden md:inline-block h-[600px] overflow-hidden rounded-lg">
+          <div data-aos='fade-right' className="relative hidden md:inline-block h-[600px] overflow-hidden rounded-lg">
             {images.map((src, index) => (
               <img
                 key={index}
@@ -66,7 +66,7 @@ const TestimonialsSection = () => {
           </div>
 
           {/* Right Column - Testimonials */}
-          <div className="space-y-4">
+          <div data-aos="fade-up" className="space-y-4">
             {testimonials.map((testimonial, index) => (
               <div key={index}>
                 {index > 0 && <div className="border-t border-white/10 my-6" />}

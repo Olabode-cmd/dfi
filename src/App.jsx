@@ -4,6 +4,7 @@ import Navbar from "./components/homenavbar";
 import MarqueeSection from "./components/home/marqueelearn";
 import TestimonialsSection from "./components/home/testimonials";
 import Clients from "./components/home/clients";
+import Footer from "./components/footer";
 import CountUp from 'react-countup';
 import { Link } from "react-router";
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -116,12 +117,12 @@ function App() {
 
       <div className="relative bg-hero">
         <section className="relative py-16 md:pb-24 md:pt-16 px-8 md:px-0 md:max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 pt-28">
+          <div className="grid grid-cols-1 md:grid-cols-2 pt-16 md:pt-28">
             <div>
               <div data-aos="fade-up" className="mb-6 mt-4">
                 <p className="text-sm uppercase text-red-500 bg-[#fff6f6] rounded-2xl px-2.5 py-1.5 inline">
                   Digital Fortress{" "}
-                  <span className="text-blue-500 text-xl">&#x2022; </span> 2025
+                  <span className="text-blue-500 text-xl">&#x2022;</span> 2025
                 </p>
               </div>
               <h1
@@ -160,7 +161,7 @@ function App() {
               </p>
 
               <div
-                className="my-8 flex flex-col space-y-2 md:flex-row md:space-x-3 md:space-y-0 md:items-center"
+                className="my-8 flex flex-col space-y-3 md:flex-row md:space-x-3 md:space-y-0 md:items-center"
                 // data-aos="fade-up"
               >
                 <div className="flex items-center">
@@ -436,99 +437,8 @@ function App() {
         <Clients />
 
         <TestimonialsSection />
-
-        {/* <VideoScrollEffect /> */}
-
-        {/* Who We Serve Section */}
-        {/* <section className="py-20 bg-white">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="flex items-center space-x-2 mb-2">
-              <HiUsers className="w-5 h-5 text-red-500" />
-              <p className="text-red-500 font-medium">Our Audience</p>
-            </div>
-            <h2 className="text-4xl font-bold mb-12">Who We Serve</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {audiences.map((audience, index) => (
-                <div
-                  key={index}
-                  className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <h3 className="text-xl font-semibold mb-4">
-                    {audience.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6">{audience.description}</p>
-                  <Link
-                    to="/services"
-                    className="inline-flex items-center space-x-2 text-red-500 border-b border-red-500"
-                  >
-                    <span>Learn more</span>
-                    <FaArrowRightLong className="w-4 h-4" />
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section> */}
-
-        {/* Contact Section */}
-        {/* <section className="py-20 bg-gray-900 text-white">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="flex items-center space-x-2 mb-2">
-              <FaPhone className="w-5 h-5 text-red-500" />
-              <p className="text-red-500 font-medium">Contact</p>
-            </div>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-4xl font-bold mb-6">
-                  Let's Start a Conversation
-                </h2>
-                <p className="text-gray-400 mb-8">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-                <div className="space-y-4">
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center space-x-2 text-red-500 border-b border-red-500"
-                  >
-                    <span>Schedule a call</span>
-                    <FaArrowRightLong className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-              <form className="space-y-6">
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    className="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-                  />
-                </div>
-                <div>
-                  <textarea
-                    placeholder="Your Message"
-                    rows={4}
-                    className="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-                  />
-                </div>
-                <button className="inline-flex items-center space-x-2 text-red-500 border-b border-red-500">
-                  <span>Send message</span>
-                  <FaArrowRightLong className="w-4 h-4" />
-                </button>
-              </form>
-            </div>
-          </div>
-        </section> */}
+        <Footer />
       </div>
-
-      {/* <h1 className="text-red-400">HEYYEY</h1> */}
     </>
   );
 }
