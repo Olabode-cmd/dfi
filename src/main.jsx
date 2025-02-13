@@ -13,6 +13,7 @@ import HomeLayout from './layouts/home.jsx';
 // PAGES
 import App from './App.jsx'
 import About from './pages/about.jsx';
+import Courses from './pages/courses.jsx';
 
 
 // COMPONENTS
@@ -27,7 +28,6 @@ const Root = () => {
   useEffect(() => {
     AOS.init({
       duration: 600,
-      // once: true,
       once: false,
     });
   }, []);
@@ -42,6 +42,7 @@ const Root = () => {
             <Route path="/" element={<HomeLayout />}>
               <Route index element={<App />} />
               <Route path="about" element={<About />} />
+              <Route path="courses" element={<Courses />} />
             </Route>
           </Routes>
         </>

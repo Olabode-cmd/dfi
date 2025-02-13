@@ -72,7 +72,7 @@ const About = () => {
             />
           </h1>
           <p className="text-sm md:text-lg md:text-right">
-            The leading Global Talent Development Corporation.
+            The Leading Global Talent Development Corporation.
           </p>
         </div>
 
@@ -93,7 +93,7 @@ const About = () => {
             <div
               data-aos="fade-up"
               data-aos-delay="300"
-              className="space-y-8 text-white text-base font-normal leading-6"
+              className="space-y-8 text-white text-base font-normal leading-[26px]"
             >
               <p>
                 Digital Fortress Limited opened for business officially in July

@@ -28,19 +28,18 @@ const Navbar = () => {
     { title: "About", path: "/about" },
     { title: "Courses", path: "/courses" },
     { title: "FAQs", path: "/faq" },
-    // { title: "Blog", path: "/blog" },
     {
       title: "Program",
       path: "/products",
       dropdown: ["Software", "Hardware", "Services"],
     },
     { title: "Enquiry", path: "/enquiry" },
-    // {
-    //   title: "Solutions",
-    //   path: "/solutions",
-    //   dropdown: ["Enterprise", "Small Business", "Startups"],
-    // },
   ];
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
 
   return (
     <nav
@@ -179,6 +178,7 @@ const Navbar = () => {
                 ) : (
                   <Link
                     to={link.path}
+                    onClick={closeMenu}
                     className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                       isScrolled
                         ? "text-white hover:text-red-500"
@@ -193,6 +193,7 @@ const Navbar = () => {
                     {link.dropdown.map((item) => (
                       <Link
                         key={item}
+                        onClick={closeMenu}
                         to={`${link.path}/${item.toLowerCase()}`}
                         className={`block px-3 py-2 rounded-md text-sm transition-colors ${
                           isScrolled
@@ -210,6 +211,7 @@ const Navbar = () => {
             <div className="pt-4 space-y-2">
               <Link
                 to="/login"
+                onClick={closeMenu}
                 className={`block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-colors ${
                   isScrolled
                     ? "text-white hover:text-red-500"
@@ -220,6 +222,7 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/apply"
+                onClick={closeMenu}
                 className={`block w-full text-left px-3 py-2 text-base font-medium rounded-md ${
                   isScrolled
                     ? "bg-white text-gray-900 hover:bg-gray-100"

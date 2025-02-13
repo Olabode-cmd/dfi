@@ -355,7 +355,7 @@ function App() {
                 <h1 className="text-2xl md:text-[44px] text-white font-semibold mb-4 -mt-24 md:mt-0">
                   We help our students <br /> learn, grow and succeed.
                 </h1>
-                <p className="text-sm md:text-md text-slate-300">
+                <p className="text-sm md:text-md text-slate-300 leading-[26px]">
                   Digital Fortress provides comprehensive education and support
                   to help you reach your full potential. Our mission is to
                   transform your passion for learning into valuable skills and
@@ -409,7 +409,7 @@ function App() {
                 starts right here.
               </span>
             </h2>
-            <p className="text-[14px] md:text-[16px] w-[97%] md:w-[85%] text-gray-700 leading-[24px] md:leading-[34px] my-8">
+            <p className="text-[14px] md:text-[16px] w-[97%] md:w-[85%] text-gray-700 leading-[26px] md:leading-[34px] my-8">
               Success in tech is built one line of code at a time. Our training
               program is designed to take you from where you are now to where
               you want to be, equipping you with in-demand skills and real-world

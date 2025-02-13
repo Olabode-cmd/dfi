@@ -101,7 +101,7 @@ const Footer = () => {
                   <li key={item.name}>
                     <a
                       href={item.href}
-                      className="text-gray-600 hover:text-gray-900 transition-colors"
+                      className="text-gray-600 text-sm md:text-base hover:text-gray-900 transition-colors"
                     >
                       {item.name}
                     </a>
