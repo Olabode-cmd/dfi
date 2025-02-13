@@ -52,7 +52,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex-shrink-0 flex items-center">
+          <Link
+            to="/"
+            onClick={closeMenu}
+            className="flex-shrink-0 flex items-center"
+          >
             <span
               className={`text-2xl font-bold ${
                 isScrolled ? "text-white" : "text-gray-900"
