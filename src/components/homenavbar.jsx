@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { CiMenuFries } from "react-icons/ci";
 import { RiCloseLargeFill } from "react-icons/ri";
 import { HiOutlineChevronDown } from "react-icons/hi";
+import { HiBars2 } from "react-icons/hi2";
 import Logo from "../assets/images/dfi-logo.png";
 
 const Navbar = () => {
@@ -43,7 +44,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full px-4 pt-2 md:px-12 transition-all z-20 duration-300 ${
+      className={`w-full px-4 pt-2 md:px-12 transition-all z-40 duration-300 ${
         isScrolled
           ? "fixed top-0 bg-gray-900 text-white shadow-lg translate-y-0"
           : "absolute top-0 bg-transparent text-gray-900 -translate-y-1"
@@ -152,7 +153,7 @@ const Navbar = () => {
               {isOpen ? (
                 <RiCloseLargeFill className="block h-6 w-6" />
               ) : (
-                <CiMenuFries className="block h-6 w-6" />
+                <HiBars2 className="block h-6 w-6" />
               )}
             </button>
           </div>

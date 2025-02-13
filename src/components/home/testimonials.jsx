@@ -52,7 +52,7 @@ const TestimonialsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left Column - Image Carousel */}
-          <div className="relative h-[600px] overflow-hidden rounded-lg">
+          <div className="relative hidden md:inline-block h-[600px] overflow-hidden rounded-lg">
             {images.map((src, index) => (
               <img
                 key={index}
@@ -71,7 +71,7 @@ const TestimonialsSection = () => {
               <div key={index}>
                 {index > 0 && <div className="border-t border-white/10 my-6" />}
                 <div className="space-y-4">
-                  <p className="text-white/90 text-md italic">
+                  <p className="text-white/90 text-sm md:text-md italic">
                     "{testimonial.text}"
                   </p>
                   <div className="flex items-center space-x-4">

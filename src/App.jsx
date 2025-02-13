@@ -127,7 +127,7 @@ function App() {
               <h1
                 data-aos="fade-up"
                 data-aos-delay="300"
-                className="text-5xl md:text-[75px] leading-[40px] md:leading-[80px]"
+                className="text-5xl md:text-[75px] leading-[60px] md:leading-[80px]"
               >
                 <span className="">
                   Learn <span className="text-red-500">Tech</span>
@@ -160,7 +160,7 @@ function App() {
               </p>
 
               <div
-                className="my-8 flex space-x-3 items-center"
+                className="my-8 flex flex-col space-y-2 md:flex-row md:space-x-3 md:space-y-0 md:items-center"
                 // data-aos="fade-up"
               >
                 <div className="flex items-center">
@@ -184,7 +184,7 @@ function App() {
                   // data-aos="fade-right"
                   src={Arrow}
                   alt="arrow"
-                  className="w-[120px] md:w-[180px] scale-x-[-1] absolute left-[40%] top-[-55px]"
+                  className="w-[120px] md:w-[180px] scale-x-[-1] absolute left-[65%] top-[-30px] md:left-[40%] md:top-[-55px]"
                 />
               </div>
             </div>
@@ -214,16 +214,16 @@ function App() {
         </section>
 
         <section
-          className="py-10 bg-slate-900 text-white relative overflow-hidden"
+          className="py-10 bg-slate-900 text-white relative overflow-hidden px-8"
           data-aos="fade-up"
           data-aos-duration="400"
         >
           <img
             src={ShapePurple}
             alt="shape"
-            className="-top-10 w-[180px] -right-10 absolute"
+            className="-top-10 w-[180px] -right-10 absolute z-10 hidden md:inline-block"
           />
-          <h1 className="text-xl text-center">
+          <h1 className="text-md md:text-xl text-center">
             We've helped over 700+ students worldwide build a career in tech.
           </h1>
         </section>
@@ -235,9 +235,9 @@ function App() {
               <h3 className="text-sm font-medium uppercase text-gray-500">
                 Why Digital Fortress?
               </h3>
-              <h1 className="text-5xl mt-4 font-semibold leading-[55px]">
+              <h1 className="text-3xl md:text-5xl mt-4 font-semibold leading-[35px] md:leading-[55px]">
                 Things that set us apart
-                <br /> from the others
+                <br className="hidden md:block" /> from the others
               </h1>
             </div>
 
@@ -257,7 +257,7 @@ function App() {
                     Expert Instructors
                   </h1>
 
-                  <p className="text-lg leading-7 text-gray-500">
+                  <p className="text-md md:text-lg leading-7 text-gray-500">
                     Learn from industry professionals with years of experience.
                     Our expert instructors provide valuable insights, practical
                     strategies, and dedicated support to help you succeed.
@@ -275,7 +275,7 @@ function App() {
                     Great Courses
                   </h1>
 
-                  <p className="text-lg leading-7 text-gray-500">
+                  <p className="text-md md:text-lg leading-7 text-gray-500">
                     Gain practical skills with our expertly designed courses.
                     Whether you're upskilling or switching careers, our content
                     is engaging, hands-on, and tailored for real-world
@@ -302,7 +302,7 @@ function App() {
                     Trusted Cetificates
                   </h1>
 
-                  <p className="text-lg leading-7 text-gray-500">
+                  <p className="text-md md:text-lg leading-7 text-gray-500">
                     Boost your career with recognized certifications. Our
                     certificates showcase your expertise and are trusted by
                     employers, giving you a competitive edge in the job market.
@@ -316,12 +316,12 @@ function App() {
         {/* SECTION COURSES */}
         <section className="max-w-6xl mx-auto px-4 pt-16 pb-32">
           <div className="text-center">
-            <h1 className="text-4xl font-semibold mb-5">
+            <h1 className="text-3xl md:text-5xl font-semibold mb-5">
               Our Most Popular Courses
             </h1>
-            <p className="text-base text-gray-500">
+            <p className="text-sm md:text-base text-gray-500">
               Providing aspiring professionals with the tools and materials they
-              need to <br /> explore and develop in their chosen fields.
+              need to <br className="hidden md:inline-block" /> explore and develop in their chosen fields.
             </p>
           </div>
 
@@ -353,7 +353,7 @@ function App() {
           <div className="max-w-6xl mx-auto">
             <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
               <div data-aos="fade-up" className="relative">
-                <div className="w-[65%] rounded-lg bg-red-500 border-[10px] border-red-500 -translate-y-40 -rotate-[6deg]">
+                <div className="w-[75%] md:w-[65%] rounded-lg bg-red-500 border-[10px] border-red-500 -translate-y-40 -rotate-[6deg]">
                   <img
                     src={Counsellor}
                     alt="dfi counsellor"
@@ -362,10 +362,10 @@ function App() {
                 </div>
               </div>
               <div data-aos="fade-right">
-                <h1 className="text-[44px] text-white font-semibold mb-4">
+                <h1 className="text-2xl md:text-[44px] text-white font-semibold mb-4 -mt-24 md:mt-0">
                   We help our students <br /> learn, grow and succeed.
                 </h1>
-                <p className="text-md text-slate-300">
+                <p className="text-sm md:text-md text-slate-300">
                   Digital Fortress provides comprehensive education and support
                   to help you reach your full potential. Our mission is to
                   transform your passion for learning into valuable skills and
@@ -375,7 +375,7 @@ function App() {
 
                 <div className="grid grid-cols-3 text-center py-16">
                   <div>
-                    <h1 className="text-5xl text-white mb-2 font-bold">
+                    <h1 className="text-3xl md:text-5xl text-white mb-2 font-bold">
                       <CountUp key={key} start={0} end={15} duration={4} />+
                     </h1>
                     <p className="text-slate-500 text-sm">
@@ -383,13 +383,13 @@ function App() {
                     </p>
                   </div>
                   <div>
-                    <h1 className="text-5xl text-white mb-2 font-bold">
+                    <h1 className="text-3xl md:text-5xl text-white mb-2 font-bold">
                       <CountUp key={key + 1} start={0} end={521} duration={4} />
                     </h1>
                     <p className="text-slate-500 text-sm">Graduates annually</p>
                   </div>
                   <div>
-                    <h1 className="text-5xl text-white mb-2 font-bold">
+                    <h1 className="text-3xl md:text-5xl text-white mb-2 font-bold">
                       <CountUp key={key + 2} start={0} end={6} duration={4} />
                     </h1>
                     <p className="text-slate-500 text-sm">
@@ -408,8 +408,8 @@ function App() {
           <section className="bg-white/85 relative py-24 px-4 md:px-32">
             <h2 className="text-[28px] md:text-[33px] font-semibold mb-4 md:leading-[50px]">
               Empowering you, one
-              <br />
-              step at a time. Your future <br />
+              <br className="hidden md:inline-block" />
+              step at a time. Your future <br className="hidden md:inline-block" />
               in tech{" "}
               <span
                 ref={textRef}
@@ -418,7 +418,7 @@ function App() {
                 starts right here.
               </span>
             </h2>
-            <p className="text-[14px] md:text-[16px] w-[97%] md:w-[85%] text-gray-700 leading-[34px] my-8">
+            <p className="text-[14px] md:text-[16px] w-[97%] md:w-[85%] text-gray-700 leading-[24px] md:leading-[34px] my-8">
               Success in tech is built one line of code at a time. Our training
               program is designed to take you from where you are now to where
               you want to be, equipping you with in-demand skills and real-world
