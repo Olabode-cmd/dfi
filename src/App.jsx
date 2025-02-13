@@ -169,13 +169,13 @@ function App() {
                   <img src={Student3} alt="student 3" className="w-12" />
                 </div>
 
-                <h1 className="font-medium text-md">
+                <h1 className="font-medium text-sm md:text-md">
                   More than 500 graduates annually.
                 </h1>
               </div>
 
               <div className="relative mt-6">
-                <button className="flex items-center text-white px-5 py-3 rounded-md space-x-3 bg-red-500 hover:bg-blue-600 duration-200">
+                <button className="flex items-center text-white text-sm md:text-base px-3 md:px-5 py-3 rounded-md space-x-3 bg-red-500 hover:bg-blue-600 duration-200">
                   <span>Explore courses</span>
                   <FaArrowRightLong className="w-8" />
                 </button>
@@ -321,7 +321,8 @@ function App() {
             </h1>
             <p className="text-sm md:text-base text-gray-500">
               Providing aspiring professionals with the tools and materials they
-              need to <br className="hidden md:inline-block" /> explore and develop in their chosen fields.
+              need to <br className="hidden md:inline-block" /> explore and
+              develop in their chosen fields.
             </p>
           </div>
 
@@ -409,7 +410,8 @@ function App() {
             <h2 className="text-[28px] md:text-[33px] font-semibold mb-4 md:leading-[50px]">
               Empowering you, one
               <br className="hidden md:inline-block" />
-              step at a time. Your future <br className="hidden md:inline-block" />
+              step at a time. Your future{" "}
+              <br className="hidden md:inline-block" />
               in tech{" "}
               <span
                 ref={textRef}
