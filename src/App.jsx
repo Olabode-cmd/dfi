@@ -43,32 +43,32 @@ function App() {
 
   const courses = [
     {
-      title: "Digital Marketing",
-      description:
-        "In this course, you'll learn how to create effective online marketing strategies, optimize social media campaigns, and analyze digital marketing metrics to grow any business.",
-      image: Class1,
-      id: 1,
-      duration: "12 weeks",
-      beginnerFriendly: true,
-    },
-    {
-      title: "Web Development",
-      description:
-        "This course is all about building responsive websites and dynamic web applications using HTML, CSS, JavaScript, and modern frameworks. You'll also learn best practices for front-end and back-end development.",
-      image: Class2,
-      id: 2,
-      duration: "16 weeks",
-      beginnerFriendly: false,
-    },
-    {
-      title: "Data Analytics",
-      description:
-        "In this course, you'll master data analysis techniques, learn to visualize insights using popular tools, and make data-driven decisions to solve real-world problems.",
-      image: Class3,
-      id: 3,
-      duration: "10 weeks",
-      beginnerFriendly: true,
-    },
+    title: "Full Stack Web Development",
+    description:
+      "Learn to build dynamic, responsive, and scalable web applications using front-end and back-end technologies like HTML, CSS, JavaScript, Node.js, and databases.",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    id: 2,
+    duration: "16 weeks",
+    beginnerFriendly: true,
+  },
+  {
+    title: "Python for Beginners",
+    description:
+      "Start your programming journey with Python. Learn the basics of Python syntax, data structures, and problem-solving techniques.",
+    image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935",
+    id: 3,
+    duration: "8 weeks",
+    beginnerFriendly: true,
+  },
+  {
+    title: "Advanced Python",
+    description:
+      "Dive deeper into Python with advanced topics like decorators, generators, multithreading, and working with APIs.",
+    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4",
+    id: 4,
+    duration: "10 weeks",
+    beginnerFriendly: false,
+  },
   ];
 
 
