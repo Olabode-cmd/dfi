@@ -14,6 +14,8 @@ import HomeLayout from './layouts/home.jsx';
 import App from './App.jsx'
 import About from './pages/about.jsx';
 import Courses from './pages/courses.jsx';
+import Login from './pages/auth/login.jsx';
+import Enquiry from './pages/enquiry.jsx';
 
 
 // COMPONENTS
@@ -43,7 +45,10 @@ const Root = () => {
               <Route index element={<App />} />
               <Route path="about" element={<About />} />
               <Route path="courses" element={<Courses />} />
+              <Route path="enquiry" element={<Enquiry />} />
             </Route>
+
+            <Route path="/auth/login" element={<Login />} />
           </Routes>
         </>
       )}

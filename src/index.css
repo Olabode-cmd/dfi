@@ -124,3 +124,14 @@
 .transform-img {
   transform: translateY(-130px) rotateY(-25deg);
 }
+
+/* AUTH PAGES */
+
+.login-bg {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to right bottom, #0000007e, #00000096), url('assets/images/about/about4.jpg') no-repeat;
+  background-size: cover;
+  position: relative;
+  /* background-position: left; */
+}

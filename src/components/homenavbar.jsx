@@ -30,8 +30,8 @@ const Navbar = () => {
     { title: "FAQs", path: "/faq" },
     {
       title: "Program",
-      path: "/products",
-      dropdown: ["Software", "Hardware", "Services"],
+      path: "",
+      dropdown: ["Verify Certificates", "Digital School Books"],
     },
     { title: "Enquiry", path: "/enquiry" },
   ];
@@ -103,7 +103,9 @@ const Navbar = () => {
                     {link.dropdown.map((item) => (
                       <Link
                         key={item}
-                        to={`${link.path}/${item.toLowerCase()}`}
+                        to={`${link.path}/${item
+                          .toLowerCase()
+                          .replace(/ /g, "-")}`}
                         className={`block px-4 py-2 text-sm transition-colors ${
                           isScrolled
                             ? "text-gray-100 hover:text-red-500"
@@ -122,7 +124,7 @@ const Navbar = () => {
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <Link
-              to="/login"
+              to="/auth/login"
               className={`transition-colors ${
                 isScrolled
                   ? "text-white hover:text-red-500"
@@ -132,7 +134,7 @@ const Navbar = () => {
               Login
             </Link>
             <Link
-              to="/apply"
+              to="/auth/apply"
               className={`px-4 py-2 rounded-md transition-colors ${
                 isScrolled
                   ? "bg-white text-gray-900 hover:bg-gray-100"
@@ -214,7 +216,7 @@ const Navbar = () => {
             ))}
             <div className="pt-4 space-y-2">
               <Link
-                to="/login"
+                to="/auth/login"
                 onClick={closeMenu}
                 className={`block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-colors ${
                   isScrolled
