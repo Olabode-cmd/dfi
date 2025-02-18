@@ -133,5 +133,15 @@
   background: linear-gradient(to right bottom, #0000007e, #00000096), url('assets/images/about/about4.jpg') no-repeat;
   background-size: cover;
   position: relative;
-  /* background-position: left; */
+}
+
+.apply-bg {
+  background: linear-gradient(to right bottom, #0000007e, #00000096), url('assets/images/class3.jpg') no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.verify-bg {
+  background: linear-gradient(to bottom, #00000018, #00000093, #00000096),url('assets/images/about/about2.jpg') no-repeat;
+  background-size: cover;
 }
