@@ -1,19 +1,19 @@
 import React from "react";
 import Logo from "../assets/images/dfi-logo.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const links = {
     company: [
-      { name: "About Us", href: "#" },
+      { name: "About Us", href: "/about" },
       { name: "Careers", href: "#" },
       { name: "Contact", href: "#" },
       { name: "Blog", href: "#" },
     ],
     services: [
-      { name: "Courses", href: "#" },
-      { name: "Workshops", href: "#" },
-      { name: "Mentorship", href: "#" },
-      { name: "Corporate Training", href: "#" },
+      { name: "Courses", href: "/courses" },
+      { name: "Enquiry", href: "/enquiry" },
+      { name: "Executive Training", href: "/executive" },
     ],
     resources: [
       { name: "Documentation", href: "#" },
@@ -22,9 +22,8 @@ const Footer = () => {
       { name: "Student Stories", href: "#" },
     ],
     legal: [
-      { name: "Privacy Policy", href: "#" },
-      { name: "Terms of Service", href: "#" },
-      { name: "Cookie Policy", href: "#" },
+      { name: "Privacy Policy", href: "/privacy-policy" },
+      { name: "Terms of Service", href: "/terms" },
     ],
   };
 
@@ -99,12 +98,12 @@ const Footer = () => {
               <ul className="space-y-3">
                 {items.map((item) => (
                   <li key={item.name}>
-                    <a
-                      href={item.href}
+                    <Link
+                      to={item.href}
                       className="text-gray-600 text-sm md:text-base hover:text-gray-900 transition-colors"
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
