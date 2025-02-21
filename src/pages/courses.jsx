@@ -151,7 +151,7 @@ const Courses = () => {
       <div className="bg-gray-50 pt-56 pb-16">
         <div className="max-w-7xl mx-auto px-3 md:px-8">
           <h1 className="text-3xl md:text-5xl font-medium mb-3">Courses</h1>
-          <p className="text-gray-700 font-normal text-sm md:text-base">
+          <p className="text-gray-700 font-normal text-sm md:text-base leading-7">
             Providing aspiring professionals with the tools and materials they
             need to explore <br className="hidden md:block" /> and develop in
             their chosen fields.

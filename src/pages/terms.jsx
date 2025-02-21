@@ -6,7 +6,7 @@ const TermsOfService = () => {
           <h1 className="text-3xl md:text-5xl font-medium mb-3">
             Terms of Service
           </h1>
-          <p className="text-gray-700 font-normal text-sm md:text-base">
+          <p className="text-gray-700 font-normal text-sm md:text-base leading-7">
             By using our website and enrolling in our IT training programs, you
             agree to <br className="hidden md:block" /> these Terms of Service.
           </p>

@@ -6,7 +6,7 @@ const PrivacyPolicy = () => {
             <h1 className="text-3xl md:text-5xl font-medium mb-3">
               Privacy Policy
             </h1>
-            <p className="text-gray-700 font-normal text-sm md:text-base">
+            <p className="text-gray-700 font-normal text-sm md:text-base leading-7">
               Welcome to Digital Fortress Institute. Your privacy is important
               to us. This <br className="hidden md:block" /> Privacy Policy
               explains how we collect, use, and protect your information.
