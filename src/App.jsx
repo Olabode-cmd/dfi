@@ -5,7 +5,7 @@ import MarqueeSection from "./components/home/marqueelearn";
 import TestimonialsSection from "./components/home/testimonials";
 import Clients from "./components/home/clients";
 import Footer from "./components/footer";
-import CountUp from 'react-countup';
+import CountUp from "react-countup";
 import { Link } from "react-router";
 import { FaArrowRightLong } from "react-icons/fa6";
 
@@ -23,7 +23,7 @@ import Class3 from "./assets/images/class3.jpg";
 import Instructors from "./assets/images/undraw-instructors.svg";
 import Courses from "./assets/images/undraw-courses.svg";
 import Certificate from "./assets/images/undraw-certificates.svg";
-import Counsellor from './assets/images/dfi-counsellor.png'
+import Counsellor from "./assets/images/dfi-counsellor.png";
 
 import CourseCard from "./components/course-card";
 
@@ -70,7 +70,6 @@ function App() {
       beginnerFriendly: false,
     },
   ];
-
 
   const audiences = [
     {
@@ -302,8 +301,8 @@ function App() {
           </div>
         </section>
 
-        {/* SECTION COURSES */}
-        <section className="max-w-6xl mx-auto px-4 pt-16 pb-32">
+        {/* SECTION COURSES - MOBILE VIEW */}
+        <section className="max-w-6xl mx-auto px-4 pt-16 pb-32 block lg:hidden">
           <div className="text-center">
             <h1 className="text-3xl md:text-5xl font-semibold mb-5">
               Our Most Popular Courses
@@ -337,6 +336,71 @@ function App() {
             </button>
           </div>
         </section>
+
+        {/* SECTION COURSES - DESKTOP VIEW */}
+        <section className="pt-16 pb-32 courses hidden lg:block">
+          <div className="text-center mb-17">
+            <h1 className="text-3xl md:text-5xl font-semibold mb-5">
+              Our Most Popular Courses
+            </h1>
+            <p className="text-sm md:text-base text-gray-500">
+              Providing aspiring professionals with the tools and materials they
+              need to <br className="hidden md:inline-block" /> explore and
+              develop in their chosen fields.
+            </p>
+          </div>
+
+          {courses.map((course, index) => (
+            <div
+              key={course.id}
+              className={`course-${index + 1} ${
+                index % 2 === 0
+                  ? "bg-slate-900 text-white"
+                  : "bg-white text-slate-900"
+              } pt-10 ${index === 2 ? "h-[60vh]" : "h-screen"}`}
+            >
+              <div className="max-w-6xl mx-auto px-3 md:px-8">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="flex items-start space-x-5">
+                    <h1 className="text-4xl font-medium">{`0${index + 1}`}</h1>
+                    <div>
+                      <h1 className="text-2xl md:text-4xl mb-10">
+                        {course.title}
+                      </h1>
+
+                      <p className="text-sm mb-3">{course.description}</p>
+                      <div className="flex items-center gap-4 mb-3">
+                        {course.beginnerFriendly == true ? (
+                          <span className="px-3 py-1 bg-green-50 text-green-600 text-xs font-medium rounded-full">
+                            Beginner Friendly
+                          </span>
+                        ) : (
+                          ""
+                        )}
+                        <span className="text-gray-500 text-sm">
+                          {course.duration}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    className="rounded-md ml-auto w-[85%]"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </section>
+
+        <div className="items-center justify-center mt-0 mb-10 hidden lg:flex">
+          <button className="flex items-center text-sm text-white px-3 py-2.5 rounded-md space-x-2 bg-red-500 hover:bg-red-600 duration-200">
+            <span>View all courses</span>
+            <FaArrowRightLong className="w-8" />
+          </button>
+        </div>
 
         {/* STATISTICS */}
         <section className="bg-slate-900 pt-24 pb-10 px-4">

@@ -18,6 +18,9 @@ import Login from './pages/auth/login.jsx';
 import Apply from './pages/auth/apply.jsx';
 import Enquiry from './pages/enquiry.jsx';
 import VerifyCertificates from './pages/verify-certificates.jsx';
+import BookList from './pages/book-list.jsx';
+import PrivacyPolicy from './pages/privacy-policy.jsx';
+import TermsOfService from './pages/terms.jsx';
 
 
 // COMPONENTS
@@ -48,7 +51,10 @@ const Root = () => {
               <Route path="about" element={<About />} />
               <Route path="courses" element={<Courses />} />
               <Route path="enquiry" element={<Enquiry />} />
+              <Route path="privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="terms" element={<TermsOfService />} />
               <Route path="verify-certificates" element={<VerifyCertificates />} />
+              <Route path="digital-school-books" element={<BookList />} />
             </Route>
 
             <Route path="/auth/login" element={<Login />} />

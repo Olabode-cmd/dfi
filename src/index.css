@@ -145,3 +145,29 @@
   background: linear-gradient(to bottom, #00000018, #00000093, #00000096),url('assets/images/about/about2.jpg') no-repeat;
   background-size: cover;
 }
+.book-bg {
+  background: linear-gradient(to bottom, #00000018, #000000bb, #000000a9), url('assets/images/class2.jpg') no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* SECTION COURSES STICKY EFFECT */
+.courses {
+  position: relative;
+  height: 400vh;
+}
+
+.course-1 {
+  position: sticky;
+  top: 12%;
+}
+
+.course-2 {
+  position: sticky;
+  top: 30%;
+}
+
+.course-3 {
+  position: sticky;
+  top: 48%;
+}

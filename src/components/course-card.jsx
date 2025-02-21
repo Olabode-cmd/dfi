@@ -7,7 +7,7 @@ const CourseCard = ({ id, image, title, description, duration, beginnerFriendly 
     <div
       data-aos="fade-up"
       // data-aos-delay={aosDelay}
-      className="bg-white rounded-md border border-gray-200 overflow-hidden w-full max-w-sm h-full flex flex-col transform transition-transform duration-300"
+      className="bg-white rounded-md border border-gray-200 overflow-hidden w-full max-w-sm mx-auto h-full flex flex-col transform transition-transform duration-300"
     >
       <div className="relative w-full pt-[56.25%] bg-gray-100">
         <img
