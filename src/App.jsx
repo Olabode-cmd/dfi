@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 // import VideoBg from "./components/home/videobg";
-import Navbar from "./components/homenavbar";
 import MarqueeSection from "./components/home/marqueelearn";
 import TestimonialsSection from "./components/home/testimonials";
 import Clients from "./components/home/clients";
@@ -68,23 +67,6 @@ function App() {
       id: 4,
       duration: "10 weeks",
       beginnerFriendly: false,
-    },
-  ];
-
-  const audiences = [
-    {
-      title: "Startups",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    {
-      title: "Enterprises",
-      description:
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      title: "Entrepreneurs",
-      description:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
     },
   ];
 
@@ -183,7 +165,7 @@ function App() {
               </div>
             </div>
 
-            <div className="md:flex justify-center md:justify-end relative hidden">
+            <div className="md:flex hidden justify-center md:justify-end relative">
               <img
                 src={HeroDFI}
                 alt="heroimg"
@@ -357,16 +339,19 @@ function App() {
                 index % 2 === 0
                   ? "bg-slate-900 text-white"
                   : "bg-white text-slate-900"
-              } pt-10 ${index === 2 ? "h-[60vh]" : "h-screen"}`}
+              } pt-10 ${index === 2 ? "h-[600px]" : "h-[900px]"}`}
             >
               <div className="max-w-6xl mx-auto px-3 md:px-8">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="flex items-start space-x-5">
                     <h1 className="text-4xl font-medium">{`0${index + 1}`}</h1>
                     <div>
-                      <h1 className="text-2xl md:text-4xl mb-10">
+                      <Link
+                        href="/"
+                        className="text-2xl md:text-4xl block mb-10 hover:text-red-500 duration-150"
+                      >
                         {course.title}
-                      </h1>
+                      </Link>
 
                       <p className="text-sm mb-3">{course.description}</p>
                       <div className="flex items-center gap-4 mb-3">
@@ -380,6 +365,13 @@ function App() {
                         <span className="text-gray-500 text-sm">
                           {course.duration}
                         </span>
+                      </div>
+
+                      <div className="inline-block w-auto">
+                        <Link className="flex space-x-3 py-1 items-center border-b border-gray-200 mt-4 text-sm hover:text-red-500 duration-150">
+                          <span>More about this course</span>
+                          <FaArrowRightLong />
+                        </Link>
                       </div>
                     </div>
                   </div>

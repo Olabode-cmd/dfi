@@ -1,23 +1,81 @@
 import Navbar from "../../components/homenavbar";
 import { useState, useEffect } from "react";
+import { registerUser } from "../../services/auth";
+// import { useAuth } from "../../context/authContext";
+import { toast } from "react-toastify";
+
+// Assets
 import Logo from "../../assets/images/dfi-logo.png";
-import { FaRegEye, FaRegEyeSlash, FaSpinner } from "react-icons/fa";
+import { FaRegEye, FaRegEyeSlash, FaSpinner, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router";
 
 const Apply = () => {
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
+  const togglePassword = () => setVisible(!visible);
 
-  const togglePassword = () => {
-    setVisible(!visible);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     setLoading(true);
+
+    // const formData = {
+    //   email: email,
+    //   username: username,
+    //   password: password,
+    //   phone_number: phoneNumber,
+    // }
+    // console.log(formData)
+
+    try {
+      const response = await fetch(
+        `${api}/user/v1/register/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      console.log("Response Status:", response.status);
+
+      let data;
+      try {
+        data = await response.json();
+      } catch (jsonError) {
+        throw new Error("Invalid JSON response from server");
+      }
+
+      if (!response.ok) {
+        console.error("Server Error:", data);
+        toast.error(data?.message || "Registration failed. Please try again.");
+        return;
+      }
+
+      if (!data?.access || !data?.user?.id) {
+        throw new Error("Incomplete response data. Missing token or user ID.");
+      }
+
+      localStorage.setItem("accessToken", data.access);
+      localStorage.setItem("userId", data.user.id);
+
+      toast.success("Registration successful");
+    } catch (error) {
+      console.error("Fetch Error:", error);
+      toast.error(`Error: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+
   };
+
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 relative">
@@ -40,55 +98,41 @@ const Apply = () => {
               </p>
             </div>
 
-            <form className="my-12" onSubmit={handleSubmit}>
+            <form className="my-12 pb-6" onSubmit={handleSubmit}>
               <div className="space-y-4">
-                <div className="input-group">
-                  <label className="text-gray-500 text-sm block">Email</label>
-                  <input
-                    type="email"
-                    name=""
-                    className="w-full mt-2 px-3 py-2.5 bg-gray-50 rounded-md text-sm border border-gray-300 focus:outline-red-500 duration-150"
-                  />
-                </div>
+                <InputField
+                  label="Email"
+                  type="email"
+                  value={email}
+                  onChange={setEmail}
+                />
+                <InputField
+                  label="Username"
+                  type="text"
+                  value={username}
+                  onChange={setUsername}
+                />
+                <InputField
+                  label="Phone Number"
+                  type="text"
+                  value={phoneNumber}
+                  onChange={setPhoneNumber}
+                />
 
-                <div className="input-group">
-                  <label className="text-gray-500 text-sm block">
-                    Username
-                  </label>
-                  <input
-                    type="text"
-                    name=""
-                    className="w-full mt-2 px-3 py-2.5 bg-gray-50 rounded-md text-sm border border-gray-300 focus:outline-red-500 duration-150"
-                  />
-                </div>
-
-                <div>
-                  <div className="input-group">
-                    <label className="text-gray-500 text-sm block">
-                      Password
-                    </label>
-                    <div className="relative">
-                      <input
-                        type={visible ? "text" : "password"}
-                        className="w-full mt-2 px-3 py-2.5 bg-gray-50 rounded-md text-sm border border-gray-300 focus:outline-red-500 duration-150"
-                      />
-
-                      <div className="icon absolute right-5 top-[45%]">
-                        {visible ? (
-                          <FaRegEye
-                            className="text-gray-500"
-                            onClick={togglePassword}
-                          />
-                        ) : (
-                          <FaRegEyeSlash
-                            className="text-gray-500"
-                            onClick={togglePassword}
-                          />
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <PasswordField
+                  label="Password"
+                  value={password}
+                  onChange={setPassword}
+                  visible={visible}
+                  togglePassword={togglePassword}
+                />
+                <PasswordField
+                  label="Confirm Password"
+                  value={confirmPassword}
+                  onChange={setConfirmPassword}
+                  visible={visible}
+                  togglePassword={togglePassword}
+                />
 
                 <button
                   type="submit"
@@ -97,7 +141,7 @@ const Apply = () => {
                   {loading ? (
                     <FaSpinner className="text-white animate-spin w-5 h-5 mx-auto" />
                   ) : (
-                    "Login"
+                    "Apply"
                   )}
                 </button>
 
@@ -112,9 +156,46 @@ const Apply = () => {
           </div>
         </div>
 
-        <div class="apply-bg hidden md:inline-block fixed right-0 h-screen w-full"></div>
+        <div className="apply-bg hidden md:inline-block fixed right-0 h-screen w-full"></div>
       </div>
     </div>
   );
 };
+
+const InputField = ({ label, type, value, onChange }) => (
+  <div className="input-group">
+    <label className="text-gray-500 text-sm block">{label}</label>
+    <input
+      type={type}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className="w-full mt-2 px-3 py-2.5 bg-gray-50 rounded-md text-sm border border-gray-300 focus:outline-red-500 duration-150"
+    />
+  </div>
+);
+
+const PasswordField = ({ label, value, onChange, visible, togglePassword }) => (
+  <div className="input-group">
+    <label className="text-gray-500 text-sm block">{label}</label>
+    <div className="relative">
+      <input
+        type={visible ? "text" : "password"}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="w-full mt-2 px-3 py-2.5 bg-gray-50 rounded-md text-sm border border-gray-300 focus:outline-red-500 duration-150"
+      />
+      <div
+        className="icon absolute right-5 top-[45%] cursor-pointer"
+        onClick={togglePassword}
+      >
+        {visible ? (
+          <FaRegEye className="text-gray-500" />
+        ) : (
+          <FaRegEyeSlash className="text-gray-500" />
+        )}
+      </div>
+    </div>
+  </div>
+);
+
 export default Apply;

@@ -1,7 +1,7 @@
 import Navbar from "../../components/homenavbar";
 import { useState, useEffect } from "react";
 import Logo from "../../assets/images/dfi-logo.png";
-import { FaRegEye, FaRegEyeSlash, FaSpinner } from "react-icons/fa";
+import { FaRegEye, FaRegEyeSlash, FaSpinner, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router";
 
 const Login = () => {
@@ -19,7 +19,6 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setLoading(true);
   }
   return (
@@ -147,7 +146,7 @@ const Login = () => {
           </div>
         </div>
 
-        <div class="login-bg hidden md:inline-block"></div>
+        <div className="login-bg hidden md:inline-block"></div>
       </div>
     </div>
   );

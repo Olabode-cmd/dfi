@@ -7,6 +7,9 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 
+// CONTEXTS
+import { AuthProvider } from './context/authContext.jsx';
+
 // LAYOUTS
 import HomeLayout from './layouts/home.jsx';
 
@@ -26,6 +29,7 @@ import TermsOfService from './pages/terms.jsx';
 // COMPONENTS
 import CustomCursor from './components/custom-cursor.jsx';
 import Preloader from './components/preloader.jsx';
+import { ToastContainer } from 'react-toastify';
 
 
 // ROOT APP
@@ -41,27 +45,33 @@ const Root = () => {
 
   return (
     <BrowserRouter>
-      {loading && <Preloader onComplete={() => setLoading(false)} />}
-      {!loading && (
-        <>
-          <CustomCursor />
-          <Routes>
-            <Route path="/" element={<HomeLayout />}>
-              <Route index element={<App />} />
-              <Route path="about" element={<About />} />
-              <Route path="courses" element={<Courses />} />
-              <Route path="enquiry" element={<Enquiry />} />
-              <Route path="privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="terms" element={<TermsOfService />} />
-              <Route path="verify-certificates" element={<VerifyCertificates />} />
-              <Route path="digital-school-books" element={<BookList />} />
-            </Route>
+      <AuthProvider>
+        {loading && <Preloader onComplete={() => setLoading(false)} />}
+        {!loading && (
+          <>
+            <CustomCursor />
+            <ToastContainer />
+            <Routes>
+              <Route path="/" element={<HomeLayout />}>
+                <Route index element={<App />} />
+                <Route path="about" element={<About />} />
+                <Route path="courses" element={<Courses />} />
+                <Route path="enquiry" element={<Enquiry />} />
+                <Route path="privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="terms" element={<TermsOfService />} />
+                <Route
+                  path="verify-certificates"
+                  element={<VerifyCertificates />}
+                />
+                <Route path="digital-school-books" element={<BookList />} />
+              </Route>
 
-            <Route path="/auth/login" element={<Login />} />
-            <Route path="/auth/apply" element={<Apply />} />
-          </Routes>
-        </>
-      )}
+              <Route path="/auth/login" element={<Login />} />
+              <Route path="/auth/apply" element={<Apply />} />
+            </Routes>
+          </>
+        )}
+      </AuthProvider>
     </BrowserRouter>
   );
 };
