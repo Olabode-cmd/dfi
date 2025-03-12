@@ -12,7 +12,7 @@ export async function apiRequest(endpoint, options = {}, authRequired = true) {
     try {
         const response = await fetch(`${BASE_URL}/${endpoint}`, {
             ...options,
-            headers, // Use dynamically built headers
+            headers,
         });
 
         if (!response.ok) {

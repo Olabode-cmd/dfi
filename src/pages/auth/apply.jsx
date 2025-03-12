@@ -1,16 +1,17 @@
 import Navbar from "../../components/homenavbar";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { registerUser } from "../../services/auth";
-// import { useAuth } from "../../context/authContext";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 // Assets
 import Logo from "../../assets/images/dfi-logo.png";
-import { FaRegEye, FaRegEyeSlash, FaSpinner, FaGoogle } from "react-icons/fa";
+import { FaSpinner, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router";
+import InputField from "../../components/elements/inputfield";
+import PasswordField from "../../components/elements/passwordfield";
 
 const Apply = () => {
-  const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -18,62 +19,38 @@ const Apply = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
 
-  const togglePassword = () => setVisible(!visible);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
+
+    const credentials = {
+      email,
+      username,
+      phone_number: phoneNumber,
+      password,
+    };
+
     setLoading(true);
 
-    // const formData = {
-    //   email: email,
-    //   username: username,
-    //   password: password,
-    //   phone_number: phoneNumber,
-    // }
-    // console.log(formData)
-
     try {
-      const response = await fetch(
-        `${api}/user/v1/register/`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      console.log("Response Status:", response.status);
-
-      let data;
-      try {
-        data = await response.json();
-      } catch (jsonError) {
-        throw new Error("Invalid JSON response from server");
-      }
-
-      if (!response.ok) {
-        console.error("Server Error:", data);
-        toast.error(data?.message || "Registration failed. Please try again.");
-        return;
-      }
-
-      if (!data?.access || !data?.user?.id) {
-        throw new Error("Incomplete response data. Missing token or user ID.");
-      }
+      const data = await registerUser(credentials);
 
       localStorage.setItem("accessToken", data.access);
       localStorage.setItem("userId", data.user.id);
 
       toast.success("Registration successful");
+      navigate("/dashboard");
     } catch (error) {
-      console.error("Fetch Error:", error);
-      toast.error(`Error: ${error.message}`);
+      toast.error(error.message || "Registration failed");
     } finally {
       setLoading(false);
     }
-
   };
 
   return (
@@ -123,15 +100,11 @@ const Apply = () => {
                   label="Password"
                   value={password}
                   onChange={setPassword}
-                  visible={visible}
-                  togglePassword={togglePassword}
                 />
                 <PasswordField
                   label="Confirm Password"
                   value={confirmPassword}
                   onChange={setConfirmPassword}
-                  visible={visible}
-                  togglePassword={togglePassword}
                 />
 
                 <button
@@ -161,41 +134,5 @@ const Apply = () => {
     </div>
   );
 };
-
-const InputField = ({ label, type, value, onChange }) => (
-  <div className="input-group">
-    <label className="text-gray-500 text-sm block">{label}</label>
-    <input
-      type={type}
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      className="w-full mt-2 px-3 py-2.5 bg-gray-50 rounded-md text-sm border border-gray-300 focus:outline-red-500 duration-150"
-    />
-  </div>
-);
-
-const PasswordField = ({ label, value, onChange, visible, togglePassword }) => (
-  <div className="input-group">
-    <label className="text-gray-500 text-sm block">{label}</label>
-    <div className="relative">
-      <input
-        type={visible ? "text" : "password"}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full mt-2 px-3 py-2.5 bg-gray-50 rounded-md text-sm border border-gray-300 focus:outline-red-500 duration-150"
-      />
-      <div
-        className="icon absolute right-5 top-[45%] cursor-pointer"
-        onClick={togglePassword}
-      >
-        {visible ? (
-          <FaRegEye className="text-gray-500" />
-        ) : (
-          <FaRegEyeSlash className="text-gray-500" />
-        )}
-      </div>
-    </div>
-  </div>
-);
 
 export default Apply;

@@ -12,6 +12,7 @@ import { AuthProvider } from './context/AuthContext.jsx';
 
 // LAYOUTS
 import HomeLayout from './layouts/home.jsx';
+import DashboardLayout from './layouts/dashboard.jsx';
 
 // PAGES
 import App from './App.jsx'
@@ -25,11 +26,14 @@ import BookList from './pages/book-list.jsx';
 import PrivacyPolicy from './pages/privacy-policy.jsx';
 import TermsOfService from './pages/terms.jsx';
 
+import Dashboard from './pages/dashboard/index.jsx';
+
 
 // COMPONENTS
 import CustomCursor from './components/custom-cursor.jsx';
 import Preloader from './components/preloader.jsx';
 import { ToastContainer } from 'react-toastify';
+import ProtectedRoute from './components/protectedroute.jsx';
 
 
 // ROOT APP
@@ -64,6 +68,28 @@ const Root = () => {
                   element={<VerifyCertificates />}
                 />
                 <Route path="digital-school-books" element={<BookList />} />
+              </Route>
+
+              {/* <Route path="/dashboard" element={<DashboardLayout />}>
+                <Route
+                  index
+                  element={
+                    <ProtectedRoute>
+                      <Dashboard />
+                    </ProtectedRoute>
+                  }
+                />
+                
+              </Route> */}
+
+              <Route
+                element={<ProtectedRoute />}
+              >
+                <Route path="/dashboard" element={<DashboardLayout />}>
+                  <Route index element={<Dashboard />} />
+                  {/* <Route path="projects" element={<Projects />} />{" "} */}
+                  {/* <Route path="classes" element={<Classes />} />{" "} */}
+                </Route>
               </Route>
 
               <Route path="/auth/login" element={<Login />} />
