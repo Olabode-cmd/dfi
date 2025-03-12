@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 
 // CONTEXTS
-import { AuthProvider } from './context/authContext.jsx';
+import { AuthProvider } from './context/AuthContext.jsx';
 
 // LAYOUTS
 import HomeLayout from './layouts/home.jsx';
