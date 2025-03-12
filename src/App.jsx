@@ -284,7 +284,7 @@ function App() {
         </section>
 
         {/* SECTION COURSES - MOBILE VIEW */}
-        <section className="max-w-6xl mx-auto px-4 pt-16 pb-32 block lg:hidden">
+        <section className="max-w-6xl mx-auto px-4 pt-16 pb-32">
           <div className="text-center">
             <h1 className="text-3xl md:text-5xl font-semibold mb-5">
               Our Most Popular Courses
@@ -320,7 +320,7 @@ function App() {
         </section>
 
         {/* SECTION COURSES - DESKTOP VIEW */}
-        <section className="pt-16 pb-32 courses hidden lg:block">
+        {/* <section className="pt-16 pb-32 courses hidden lg:block">
           <div className="text-center mb-17">
             <h1 className="text-3xl md:text-5xl font-semibold mb-5">
               Our Most Popular Courses
@@ -385,14 +385,14 @@ function App() {
               </div>
             </div>
           ))}
-        </section>
+        </section> */}
 
-        <div className="items-center justify-center mt-0 mb-10 hidden lg:flex">
+        {/* <div className="items-center justify-center mt-0 mb-10 hidden lg:flex">
           <button className="flex items-center text-sm text-white px-3 py-2.5 rounded-md space-x-2 bg-red-500 hover:bg-red-600 duration-200">
             <span>View all courses</span>
             <FaArrowRightLong className="w-8" />
           </button>
-        </div>
+        </div> */}
 
         {/* STATISTICS */}
         <section className="bg-slate-900 pt-24 pb-10 px-4">
