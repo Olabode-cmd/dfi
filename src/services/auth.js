@@ -1,18 +1,6 @@
-import { apiRequest } from "./api";
-// const BASE_URL = import.meta.env.VITE_APP_API;
-
-// Register User
-export async function registerUser(credentials) {
-    return apiRequest("user/v1/register/", { method: "POST", body: JSON.stringify(credentials) }, false);
-}
-
-// Login User
-// export async function loginUser(credentials) {
-//     return apiRequest("user/login/", { method: "POST", body: JSON.stringify(credentials) }, false);
-// }
+const BASE_URL = import.meta.env.VITE_APP_API;
 
 
-const BASE_URL = "https://api.digitalfortressltd.com"; 
 
 export async function authLogin(email, password) {
     try {

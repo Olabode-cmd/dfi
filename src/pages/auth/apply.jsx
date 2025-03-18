@@ -1,6 +1,5 @@
 import Navbar from "../../components/homenavbar";
 import { useState } from "react";
-import { registerUser } from "../../services/auth";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { authSignup } from "../../services/auth";
