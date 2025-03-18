@@ -3,13 +3,13 @@ import { useState } from "react";
 import { registerUser } from "../../services/auth";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-
+import { authSignup } from "../../services/auth";
 // Assets
 import Logo from "../../assets/images/dfi-logo.png";
 import { FaSpinner, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router";
-import InputField from "../../components/elements/inputfield";
-import PasswordField from "../../components/elements/passwordfield";
+import InputField from "../../components/elements/InputField";
+import PasswordField from "../../components/elements/PasswordField";
 
 const Apply = () => {
   const [loading, setLoading] = useState(false);
@@ -25,33 +25,31 @@ const Apply = () => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      toast.error("Passwords do not match");
-      return;
+        toast.error("Passwords do not match");
+        return;
     }
-
-    const credentials = {
-      email,
-      username,
-      phone_number: phoneNumber,
-      password,
-    };
 
     setLoading(true);
 
     try {
-      const data = await registerUser(credentials);
+        const data = await authSignup(email, phoneNumber, username, password, confirmPassword);
 
-      localStorage.setItem("accessToken", data.access);
-      localStorage.setItem("userId", data.user.id);
-
-      toast.success("Registration successful");
-      navigate("/dashboard");
+        // Ensure API response contains access token and user ID
+        if (data && data.access && data.user) {
+            localStorage.setItem("accessToken", data.access);
+            localStorage.setItem("userId", data.user.id);
+            toast.success("Registration successful");
+            navigate("/dashboard");
+        } else {
+            throw new Error("Invalid API response");
+        }
     } catch (error) {
-      toast.error(error.message || "Registration failed");
+        toast.error(error.message || "Registration failed");
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
-  };
+};
+
 
   return (
     <div>
